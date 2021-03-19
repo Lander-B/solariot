@@ -305,7 +305,7 @@ def load_sma_register(registers):
             logging.error(f"{thisdate}: Connection not possible, check settings or connection")
             return
     
-        message = BinaryPayloadDecoder.fromRegisters(received.registers, endian=Endian.Big)
+        message = BinaryPayloadDecoder.fromRegisters(received.registers, byteorder=Endian.Big, wordorder=Endian.Big)
 
         # Provide the correct result depending on the defined datatype
         if type == "S32":
